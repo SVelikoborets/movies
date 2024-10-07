@@ -1,7 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+
     <div class="container mt-5 mb-5">
+        <div class="filter-section mb-4">
+            <form action="{{ route('movies.index') }}" method="GET">
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" name="year" placeholder="Год" value="{{ request('year') }}">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="country" placeholder="Страна" value="{{ request('country') }}">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="rating" placeholder="Рейтинг" value="{{ request('rating') }}">
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Фильтровать</button>
+                    </div>
+                </div>
+            </form>
+        </div>
         <div class="row">
             @foreach($movies as $movie)
                 <div class="col-lg-3 col-md-4 col-sm-6 mb-4">

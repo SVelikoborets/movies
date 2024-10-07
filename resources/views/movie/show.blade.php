@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @if(session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session()->get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-4">
@@ -28,7 +38,6 @@
                         </button>
                     @endif
                 </p>
-
                 <div class="collapse" id="collapseActors">
                     @foreach($movie->people->where('profession', 'ACTOR')->skip(6) as $actor)
                         {{ $actor->name }},
@@ -54,7 +63,16 @@
                 </div>
                 @endauth
 
+                @guest
+                    <div class="mt-4">
+                        <h5>Чтобы добавить комментарий или оценку фильма
+                            <a class="blue-link" href="{{ route('login') }}">авторизуйтесь</a>.
+                        </h5>
+                    </div>
+                @endguest
+
                 <hr>
+
                 <div class="mt-4">
                     <h5>Комментарии:</h5>
                     <div class="mb-3">
@@ -82,13 +100,6 @@
                     </form>
                     @endauth
 
-                    @guest
-                    <div class="mt-4">
-                        <h5>Чтобы добавить комментарий
-                            <a class="blue-link" href="{{ route('login') }}">авторизуйтесь</a>.
-                        </h5>
-                    </div>
-                    @endguest
                 </div>
             </div>
         </div>

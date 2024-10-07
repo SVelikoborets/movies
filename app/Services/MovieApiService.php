@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Http;
 use App\Models\Movie;
 use App\Models\People;
 
-
 class MovieApiService
 {
     private $apiUrl;
@@ -21,11 +20,10 @@ class MovieApiService
     public function fetchAdventureMovies()
     {
         for($page=1; $page<=5; $page++) {
-//            usleep(500000); // 0.5 seconds delay
             $response = Http::withHeaders([
                 'X-API-KEY' => $this->apiKey,
             ])->get($this->apiUrl . '/api/v2.2/films', [
-                'genres' => 7, // ID жанра приключения
+                'genres' => 7,
                 'type' => 'FILM',
                 'page' => $page,
                 'limit' => 100,
@@ -55,13 +53,13 @@ class MovieApiService
         $movie = Movie::updateOrCreate([
             'kinopoisk_id' => $movieData['kinopoiskId'],
         ], [
-            'title' => $movieData['nameRu'] ?? $movieData['nameEn'] ?? 'No name',
+            'title' => $movieData['nameRu'] ?? $movieData['nameEn'] ?? 'Фильм',
             'poster_url' => $movieData['posterUrl'],
-            'year' => $movieData['year'] ?? 'No data',
-            'country' => $movieData['countries'][0]['country'] ?? 'No country',
-            'description' => $movieData['description'] ?? 'Empty description',
+            'year' => $movieData['year'] ?? 'Нет данных',
+            'country' => $movieData['countries'][0]['country'] ?? 'Нет данных',
+            'description' => $movieData['description'] ?? 'Нет данных',
             'rating' => $movieData['ratingKinopoisk'],
-            'external_link' => $movieData['webUrl'] ?? 'No links',
+            'external_link' => $movieData['webUrl'] ?? 'https://www.kinopoisk.ru',
         ]);
 
         $this->fetchAndSaveStaff($movie, $filmId);
