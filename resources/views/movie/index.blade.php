@@ -2,6 +2,15 @@
 
 @section('content')
 
+    @if(session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session()->get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
     <div class="container mt-5 mb-5">
         <div class="filter-section mb-4">
             <form action="{{ route('movies.index') }}" method="GET">
@@ -13,7 +22,7 @@
                         <input type="text" class="form-control" name="country" placeholder="Страна" value="{{ request('country') }}">
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" name="rating" placeholder="Рейтинг" value="{{ request('rating') }}">
+                        <input type="text" class="form-control" name="rating" placeholder="Рейтинг от:" value="{{ request('rating') }}">
                     </div>
                     <div class="col">
                         <button type="submit" class="btn btn-primary">Фильтровать</button>
