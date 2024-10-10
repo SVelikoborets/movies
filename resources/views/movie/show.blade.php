@@ -19,6 +19,7 @@
             <div class="col-md-8">
                 <h2>{{ $movie->title }}</h2>
                 <p><strong>Год выпуска:</strong> {{ $movie->year }}</p>
+                <p><strong>Страна:</strong> {{ $movie->country }}</p>
                 <p><strong>Рейтинг КиноПоиска:</strong> {{ $movie->rating }}</p>
                 <p><strong>Рейтинг:</strong> {{ $rating ? number_format($rating, 1) . ' / 10' : 'Нет рейтинга' }}</p>
 

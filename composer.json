@@ -14,8 +14,10 @@
         "symfony/dom-crawler": "^6.4"
     },
     "require-dev": {
+        "arcanedev/laravel-lang": "10.0.0",
         "barryvdh/laravel-debugbar": "^3.13",
         "fakerphp/faker": "^1.9.1",
+        "laravel-lang/lang": "10.7.1",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
