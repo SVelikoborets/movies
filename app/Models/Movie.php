@@ -7,7 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
 
-    protected $guarded = [];
+    protected $fillable = [
+        'kinopoisk_id',
+        'title',
+        'poster_url',
+        'year',
+        'country',
+        'description',
+        'rating',
+        'external_link'
+    ];
 
     public function comments()
     {

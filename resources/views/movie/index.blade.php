@@ -16,13 +16,13 @@
         <div class="filter-section mb-4">
             <form action="{{ route('movies.index') }}" method="GET">
                 <div class="form-row">
-                    <div class="col">
+                    <div class="col mr-2">
                         <input type="text" class="form-control" name="year" placeholder="Год" value="{{ request('year') }}">
                     </div>
-                    <div class="col">
+                    <div class="col mr-lg-2">
                         <input type="text" class="form-control" name="country" placeholder="Страна" value="{{ request('country') }}">
                     </div>
-                    <div class="col">
+                    <div class="col mr-lg-2">
                         <input type="text" class="form-control" name="rating" placeholder="Рейтинг от:" value="{{ request('rating') }}">
                     </div>
                     <div class="col">
@@ -50,6 +50,24 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="filter-section mb-4">
+            <form action="{{ route('movies.index') }}" method="GET">
+                <div class="form-row">
+                    <div class="col mr-2">
+                        <input type="text" class="form-control" name="year" placeholder="Год" value="{{ request('year') }}">
+                    </div>
+                    <div class="col mr-lg-2">
+                        <input type="text" class="form-control" name="country" placeholder="Страна" value="{{ request('country') }}">
+                    </div>
+                    <div class="col mr-lg-2">
+                        <input type="text" class="form-control" name="rating" placeholder="Рейтинг от:" value="{{ request('rating') }}">
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary">Фильтровать</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <div class="pagination justify-content-center">
         {{ $movies->links() }}
