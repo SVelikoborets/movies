@@ -21,8 +21,6 @@ return new class extends Migration
             $table->string('profession');
             $table->string('poster_url')->nullable();
             $table->timestamps();
-
-            // Добавляем индексы для оптимизации запросов
             $table->index('movie_id');
             $table->index('staff_id');
 

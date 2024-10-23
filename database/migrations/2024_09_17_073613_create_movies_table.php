@@ -14,11 +14,11 @@ return new class extends Migration
             $table->string('title'); // Название фильма
             $table->string('poster_url')->nullable(); // URL постера
             $table->year('year')->nullable(); // Год выпуска
-            $table->string('country')->nullable(); //
+            $table->string('country')->nullable();
             $table->text('description')->nullable(); // Описание
             $table->decimal('rating', 3, 1)->nullable(); // Рейтинг (например, 8.5)
             $table->string('external_link')->nullable(); // Ссылка на Кинопоиск
-            $table->timestamps(); // Временные метки created_at и updated_at
+            $table->timestamps();
         });
     }
 

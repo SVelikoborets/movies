@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
-
 use App\Models\MovieRating;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -12,6 +11,9 @@ class MoviesController extends Controller
 {
     public function index(Request $request)
     {
+        $countries = Movie::select('country')->distinct()->pluck('country');
+        $years = Movie::select('year')->distinct()->orderBy('year', 'desc')->pluck('year');
+
         $query = Movie::latest();
 
         if ($request->has('year') && $request->year != '') {
@@ -28,7 +30,7 @@ class MoviesController extends Controller
 
         $movies = $query->paginate(12)->appends($request->except('page'));
 
-        return view('movie.index', compact('movies'));
+        return view('movie.index', compact('movies','countries','years'));
     }
 
     public function show($id)

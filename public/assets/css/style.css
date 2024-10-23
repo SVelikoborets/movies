@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+.hero-section {
+    background: linear-gradient(to left, #f1ac45, #2473ea);
+    padding: 20px 0;
+}
+.hero-text {
+    text-align: left;
+    color:#fff;
+}
+.hero-icons {
+    text-align: right;
+}
+.hero-icons i {
+    font-size: 2em;
+    margin: 0 10px;
+    color: #fff;
+}
+.btn-gradient {
+    background-image: linear-gradient(to left, #f1ac45, #2473ea);
+    color: white; /* Цвет текста на кнопке */
+    border: none; /* Убираем стандартную рамку кнопки */
+}
+.btn-movie {
+    background-color: #f1ac45;
+    color: white;
+    border: none; /* Убираем стандартную рамку кнопки */
+}
+footer {
+    background: linear-gradient(to left, #f1ac45, #2473ea);
+    color:#fff;
+}
